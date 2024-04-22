@@ -92,7 +92,42 @@ def frecuencia():
         
 
 def verduleria():
-    diccionario= {'manzanas':1200,'platanos':1400,'uvas':2000,'naranjas':850,'peras':1000, 'tunas':1300}
+    listaCompras= []
+
+    while True:
+        try:
+            tuplaFrutas= ()
+            num=0
+
+            diccionario= {'manzanas':1200,'platanos':1400,'uvas':2000,'naranjas':850,'peras':1000, 'tunas':1300}
+
+            for clave,valor in diccionario.items():
+                print(f'fruta:{clave}, valor:{valor}')
+            
+            elegirFruta= input('elige la fruta que te quieras llevar:').lower()
+            elegirKilos= int(input('cuantos kilos Quieres?:'))
+            seguir= input("¿Desea agregar otra fruta? (s/n): ").lower()
+
+
+            frutasClaves= list(diccionario.keys())
+            frutaValor= list(diccionario.values())
+            valor= diccionario[elegirFruta]
+
+            
+
+            if elegirFruta in frutasClaves:
+                tuplaFrutas+=(elegirFruta,elegirKilos,valor)
+                listaCompras.append(tuplaFrutas)
+            
+            match seguir:
+                case 'n':                
+                    print('total compra')
+                    for fruta in listaCompras:
+                        print(f'Fruta:{fruta[0]} kilos {fruta[1]} valor {fruta[2]}. Total parcial {fruta[1]*fruta[2]}')
+                    return
+        except:
+            print('no esta tal fruta')
+
 
 
 def menu(): #Menu del aplicativo
@@ -124,4 +159,6 @@ while True:
         case _:
             print('ese numero no es valido')
             time.sleep(3)
+            
+            
             
