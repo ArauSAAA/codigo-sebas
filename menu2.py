@@ -54,7 +54,7 @@ def diaSemana():
 def frecuencia():
     while True:
         try:
-            opcion2= input('Quieres entrar a la aplicacion [S/N]').lower()
+            opcion2= input('Quieres seguir? [S/N]').lower()
             match opcion2:
                 case 's':
                     tupla=()
