@@ -122,8 +122,11 @@ def verduleria():
             match seguir:
                 case 'n':                
                     print('total compra')
+                    num=0
                     for fruta in listaCompras:
+                        num+=fruta[1]*fruta[2]
                         print(f'Fruta:{fruta[0]} kilos {fruta[1]} valor {fruta[2]}. Total parcial {fruta[1]*fruta[2]}')
+                        print(f'Total compra:{num}')
                     return
         except:
             print('no esta tal fruta')
@@ -159,6 +162,9 @@ while True:
         case _:
             print('ese numero no es valido')
             time.sleep(3)
+            
+            
+            
             
             
             
