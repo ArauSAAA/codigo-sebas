@@ -3,6 +3,11 @@ import random #utilizar libreria, para generar números aleatorios
 """
 en esta función, se deberá validar que la opción ingresada,
 se encuentre entre 1 a 4"""
+
+
+
+    
+
 def validaOpcion():
     try:
         opcion = int(input("Ingrese la opción requerida:"))
@@ -95,48 +100,57 @@ def verduleria():
     listaCompras= []
 
     while True:
-        try:
+        
             tuplaFrutas= ()
             num=0
 
             diccionario= {'manzanas':1200,'platanos':1400,'uvas':2000,'naranjas':850,'peras':1000, 'tunas':1300}
 
             for clave,valor in diccionario.items():
-                print(f'fruta:{clave}, valor:{valor}')
-            
-            elegirFruta= input('elige la fruta que te quieras llevar:').lower()
-            elegirKilos= int(input('cuantos kilos Quieres?:'))
-            seguir= input("¿Desea agregar otra fruta? (s/n): ").lower()
+                print(f'fruta:{clave}---valor:{valor}')
+            try:
+                elegirFruta= input('elige la fruta que te quieras llevar:').lower()
+                elegirKilos= int(input('cuantos kilos Quieres?:'))
+                seguir= input("¿Desea agregar otra fruta? (s/n): ").lower()
 
 
-            frutasClaves= list(diccionario.keys())
-            frutaValor= list(diccionario.values())
-            valor= diccionario[elegirFruta]
+                frutasClaves= list(diccionario.keys())
+                frutaValor= list(diccionario.values())
+                valor= diccionario[elegirFruta]
 
-            
+                
 
-            if elegirFruta in frutasClaves:
-                tuplaFrutas+=(elegirFruta,elegirKilos,valor)
-                listaCompras.append(tuplaFrutas)
-            
-            match seguir:
-                case 'n':                
-                    print('total compra')
-                    num=0
-                    for fruta in listaCompras:
-                        num+=fruta[1]*fruta[2]
-                        print(f'Fruta:{fruta[0]} kilos {fruta[1]} valor {fruta[2]}. Total parcial {fruta[1]*fruta[2]}')
-                    print(f'Total compra:{num}')
-                    return
-        except:
-            print('no esta tal fruta')
+                if elegirFruta in frutasClaves:
+                    tuplaFrutas+=(elegirFruta,elegirKilos,valor)
+                    listaCompras.append(tuplaFrutas)
+                
+                match seguir:
+                    case 'n':                
+                        print('total compra')
+                        num=0
+                        for fruta in listaCompras:
+                            num+=fruta[1]*fruta[2]
+                            print(f'Fruta:{fruta[0]} kilos {fruta[1]} valor {fruta[2]}. Total parcial {fruta[1]*fruta[2]}')
+                        print(f'Total compra:{num}')
+                        return
+            except:
+                print('esa fruta ni la tengo')
+                print('total compra')
+                num=0
+                for fruta in listaCompras:
+                    num+=fruta[1]*fruta[2]
+                    print(f'Fruta:{fruta[0]} kilos {fruta[1]} valor {fruta[2]}. Total parcial {fruta[1]*fruta[2]}')
+                print(f'Total compra:{num}')
+                time.sleep(5)
+        
+
 
 
 
 def menu(): #Menu del aplicativo
     print("+" + "-" * 60 + "+")
     print("|" + " " *20 + " Menú Principal " + " " *24 + "|")
-    print("|" + "-" * 60 + "|")
+    print("|" + "-" *60 + "|")
     print("|" + " " *12 + "1. Determinar el día en palabras" + " " *16 + "|")
     print("|" + " " *12 + "2. Frecuencia de un número" + " " *22 + "|")
     print("|" + " " *12 + "3. Venta de frutas" + " " *30 + "|")
@@ -162,6 +176,8 @@ while True:
         case _:
             print('ese numero no es valido')
             time.sleep(3)
+            
+            
             
             
             
