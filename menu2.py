@@ -126,7 +126,7 @@ def verduleria():
                     for fruta in listaCompras:
                         num+=fruta[1]*fruta[2]
                         print(f'Fruta:{fruta[0]} kilos {fruta[1]} valor {fruta[2]}. Total parcial {fruta[1]*fruta[2]}')
-                        print(f'Total compra:{num}')
+                    print(f'Total compra:{num}')
                     return
         except:
             print('no esta tal fruta')
