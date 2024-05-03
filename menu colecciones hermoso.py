@@ -38,6 +38,8 @@ def alimentar(mascota):
 def beber(mascota):
     if mascota['sed'] == False:
         print(f'{mascota['nombre']} no tiene sed por el momento ')
+    elif mascota['sed']:
+        print()
 
 
 
@@ -103,7 +105,7 @@ def analizarMascota():
                 
             match opcion2:
                     case 1:
-                        print(alimentar(perro))
+                        alimentar(perro)
                     case 2:
                         beber(perro)
                     case 3:
