@@ -14,7 +14,7 @@ class Tareas:
         self.botonAgregar= Button(self.ventana, text='agregar', command=self.agregar)
         self.botonAgregar.grid(row=0,column=1)
 
-        self.botonQuitar= Button(self.ventana, text='quitar', command=self.quitar)
+        self.botonQuitar= Button(self.ventana, text='completar', command=self.quitar)
         self.botonQuitar.grid(row=0,column=2)
 
         self.tareasNoHecha= StringVar(value=self.tareasNoHechas)
@@ -33,12 +33,13 @@ class Tareas:
         self.ventana.mainloop()
 
     def agregar(self):
+
         self.texto= self.entrada.get()
         if  self.texto == '':
             pass
         else:
             self.tareasNoHechas.append(self.texto)
-            self.lista.insert(len(self.tareasNoHechas), f'{self.texto}❌')
+            self.lista.insert(len(self.tareasNoHechas), f'{self.texto}')
             self.entrada.delete(0, END)
 
 
@@ -48,7 +49,9 @@ class Tareas:
 
         self.tareasHechas.insert(self.cosa[0], self.lista2.get(self.cosa[0]) )
 
-        self.lista2.insert(len(self.tareasHechas), f'{self.lista2.get(self.cosa[0])}✅')
+        self.elemento= self.lista.get(self.cosa[0])
+
+        self.lista2.insert(len(self.tareasHechas), f'{self.elemento}✅')
 
         self.tareasNoHechas.pop(self.cosa[0])
         self.lista.delete(self.cosa)
