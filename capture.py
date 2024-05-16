@@ -1,11 +1,10 @@
-import pyautogui
-
-import time
 from tkinter import *
+import pyautogui
+import time
+
 
 def tomarFoto():
     texto= entrada.get()
-    time.sleep(5)
     foto= pyautogui.screenshot()
     foto.save(f'{texto}.png')
     entrada.delete(0,END)
@@ -20,5 +19,3 @@ boton.grid(row=1, column=0, padx=10, pady=10)
 
 
 ventana.mainloop()
-
-
