@@ -22,13 +22,16 @@ class Tareas:
             self.tareasHecha= StringVar(value=self.tareasHechas)
 
             self.lista=Listbox(self.ventana, listvariable=self.tareasNoHecha)
-            self.lista.grid(row=1,column=0)
+            self.lista.grid(row=2,column=0)
+
+            self.text= Label(self.ventana, text='tarea completa')
+            self.text.grid(row=1, column=1)
 
 
             self.lista2=Listbox(self.ventana, listvariable=self.tareasHecha)
-            self.lista2.grid(row=1,column=1)
+            self.lista2.grid(row=2,column=1)
         except:
-            messagebox.showinfo(title='error', message='hubo un error')
+            messagebox.showinfo(title='error', message='no selecciono ningun elemento')
     
 
 
@@ -45,7 +48,7 @@ class Tareas:
                 self.lista.insert(len(self.tareasNoHechas), f'{self.texto}')
                 self.entrada.delete(0, END)
         except:
-            messagebox.showinfo(title='error', message='hubo un error')
+            messagebox.showinfo(title='error', message='no seleccionaste ningun elemento')
 
     def quitar(self):
         try:
@@ -60,7 +63,7 @@ class Tareas:
             self.tareasNoHechas.pop(self.cosa[0])
             self.lista.delete(self.cosa)
         except:
-            messagebox.showinfo(title='error', message='hubo un error')
+            messagebox.showinfo(title='error', message='no seleccionaste ningun elemento')
 
         
         
